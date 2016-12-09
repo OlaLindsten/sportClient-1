@@ -1,25 +1,30 @@
 <div class="container">
     <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
+        <div class="col-lg-11 col-md-offset-1">
             <h2>Lägg till match</h2>
             <div ng-show="!isLoggdIn">
                 <form ng-submit="loggIn()">
-                    <label>username <input type="text" ng-model="username"/></label><br/>
-                    <label>password <input type="password" ng-model="password"/></label><br/>
-                    <input type="submit" value="logga in"/>
+                    <div class="form-group">
+                    <label for="username">Användarnamn: 
+                        <input type="text" ng-model="username" placeholder="Användarnamn"/></label>
+                    <label for="password">Lösenord: 
+                        <input type="password" ng-model="password" placeholder="Lösenord"/></label>
+                        <input type="submit" class="btn btn-primary" value="Logga in"/>
+                    </div>
                 </form>
+                
             </div>
             <div ng-show="isLoggdIn">
                 <form ng-submit="addGame()">
-                    <label>Hemmalag <select ng-model="hl">
-                        <option ng-repeat="team in teams" value="{{team.id}}">{{team.lagnamn}}</option>
-                    </select></label>
-                    <label>Bortalag<select ng-model="bl">
+                    <label>Hemmalag: <select ng-model="hl">
                             <option ng-repeat="team in teams" value="{{team.id}}">{{team.lagnamn}}</option>
                         </select></label>
-                    <br/><label>Hemmapoäng <input type="number" ng-model="ph" /></label>
-                    <br/><label>bortapoäng<input type="number" ng-model="pb" /></label>
-                    <input type="submit" value="Lägg till match" />
+                    <label>Bortalag:<select ng-model="bl">
+                            <option ng-repeat="team in teams" value="{{team.id}}">{{team.lagnamn}}</option>
+                        </select></label> 
+                    <label>Hemmapoäng: <input type="number" ng-model="ph" /></label>
+                    <label>Bortapoäng:<input type="number" ng-model="pb" /></label> 
+                    <input type="submit" class="btn btn-primary" value="Lägg till match" />
                 </form>
             </div>
         </div>

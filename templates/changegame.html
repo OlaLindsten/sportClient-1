@@ -1,19 +1,19 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
-            <h2>Change || Delete game</h2>
+            <h2>Ändra eller ta bort matcher</h2>
             <table class="table table-striped">
                 <tr>
                     <th>Edit</th><th>Hemmalag</th><th>Bortalag</th>
                     <th>Poäng hemma</th><th>Poäng borta</th><th>Remove</th>
                 </tr>
                 <tr ng-repeat="game in games">
-                    <td><button ng-click="fillForm(game.id)" class="btn btn-success" data-toggle="modal" data-target="#Modal">Edit</button></td>
+                    <td><button ng-click="fillForm(game.id)" class="btn btn-primary" data-toggle="modal" data-target="#Modal">Edit</button></td>
                     <td>{{resolveTeam(game.hemmalag)}}</td>
                     <td>{{resolveTeam(game.bortalag)}}</td>
                     <td>{{game.poanghemma}}p</td>
                     <td>{{game.poangborta}}p</td>
-                    <td><a ng-click="removeGame(game.id)">x</a></td>
+                    <td><a ng-click="removeGame(game.id)" class="glyphicon glyphicon-remove menu_links" onclick="displayData(11,1,0)"></a></td>
                 </tr>
             </table>
         </div>
@@ -26,7 +26,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                <h4 class="modal-title" id="myModalLabel">Ändra en match</h4>
             </div>
             <div class="modal-body">
                 <form ng-submit="submitForm()">
@@ -35,7 +35,7 @@
                     <label> poäng hemma: <input ng-model="formPH" type="number" /></label><br>
                     <label> poäng borta: <input ng-model="formPB" type="number" /></label><br>
                     <div class="modal-footer">
-                        <input class="btn btn-primary" type="submit" value="updatera" />
+                        <input class="btn btn-primary btn-block" type="submit" value="Uppdatera" />
                     </div>
                 </form>
             </div>
